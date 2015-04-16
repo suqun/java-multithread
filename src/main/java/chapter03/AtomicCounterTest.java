@@ -19,8 +19,14 @@ public class AtomicCounterTest extends Thread {
 
     public static void main(String[] args) {
         AtomicCounter counter = new AtomicCounter();
-        for(int i=0; i<10;i++){
+//        long start = System.nanoTime();
+//        System.out.println("===start===");
+        for(int i=0; i<5;i++){
             new AtomicCounterTest(counter).start();
         }
+//        System.out.println("===end===");
+//        long end = System.nanoTime();
+//        System.out.println((end - start) / 1000000 +
+//                "毫秒1000个线程自增完成");
     }
 }

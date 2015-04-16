@@ -11,8 +11,13 @@ public class Runner implements Runnable{
     }
 
     public void run(){
-        int value = counter.increment();
-        System.out.println("线程: "+ Thread.currentThread().getName()
-                + "计算后值为：" + value);
+        try {
+            Thread.sleep(counter.getDelay());
+            int value = counter.increment();
+            System.out.println("线程: "+ Thread.currentThread().getName()
+                    + "计算后值为：" + value);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
